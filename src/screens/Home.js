@@ -20,8 +20,8 @@ export default function Home(props) {
                         onClick={() => setContextOpened(!contextOpened)}
                     >
                         Главная
+                        <img src={require('./../img/multimedia-option.svg')} alt="" className="home__arrow-down" onClick={() => setContextOpened(!contextOpened)} />
                     </PanelHeaderContent>
-                    <img src={require('./../img/multimedia-option.svg')} alt="" className="home__arrow-down" onClick={() => setContextOpened(!contextOpened)} />
                 </PanelHeader>
                 <PanelHeaderContext opened={contextOpened} onClose={() => setContextOpened(!contextOpened)}>
                     <List>
