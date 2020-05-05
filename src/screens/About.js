@@ -61,12 +61,12 @@ export default function About(props) {
                 </Group>
                 <Group>
                 <Div className="home__button" style={{bottom: 70}}>
-                        <Button stretched mode="primary" size="l" onClick={bridge.send("VKWebAppJoinGroup", {"group_id": 195028399})}>
+                        <Button stretched mode="primary" size="l" onClick={() => bridge.send("VKWebAppJoinGroup", {"group_id": 195028399})}>
                             Сообщество с приложениями
                         </Button>
                     </Div>
                     <Div className="home__button">
-                        <Button stretched mode="secondary" size="l" onClick={bridge.send("VKWebAppAllowNotifications", {})}>
+                        <Button stretched mode="secondary" size="l" onClick={() => bridge.send("VKWebAppAllowNotifications", {})}>
                             Узнавать о приложениях
                         </Button>
                     </Div>
