@@ -24,7 +24,7 @@ export default function Phrases(props) {
                     <List>
                         <Cell
                             data-mode="all"
-                            onClick={() => setContextOpened(!contextOpened)}
+                            onClick={() => props.changeScreen("main")}
                         >
                             Главная
                         </Cell>

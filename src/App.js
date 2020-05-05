@@ -6,11 +6,12 @@ import About from './screens/About';
 import Phrases from './screens/Phrases';
 
 function App() {
+	const [modalOpen, setModalOpen] = useState(true)
 	const [activeView, setActiveView] = useState("main")
 	return (
 		<Root activeView={activeView}>
 			<View id="main">
-				<Home changeScreen={setActiveView} />
+				<Home changeScreen={setActiveView} closeModal={setModalOpen} modalOpen={modalOpen}/>
 			</View>
 			<View id="phrases">
 				<Phrases changeScreen={setActiveView}/>
