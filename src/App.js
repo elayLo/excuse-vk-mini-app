@@ -3,6 +3,7 @@ import { View, Panel, PanelHeader, Header, PanelHeaderClose, Root } from '@vkont
 import '@vkontakte/vkui/dist/vkui.css';
 import Home from './screens/Home'
 import About from './screens/About';
+import Phrases from './screens/Phrases';
 
 function App() {
 	const [activeView, setActiveView] = useState("main")
@@ -10,6 +11,9 @@ function App() {
 		<Root activeView={activeView}>
 			<View id="main">
 				<Home changeScreen={setActiveView} />
+			</View>
+			<View id="phrases">
+				<Phrases changeScreen={setActiveView}/>
 			</View>
 			<View id="about">
 				<About changeScreen={setActiveView} />

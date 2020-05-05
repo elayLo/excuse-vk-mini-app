@@ -33,10 +33,17 @@ export default function Home(props) {
                         </Cell>
                         <Cell
                             data-mode="managed"
+                            onClick={() => props.changeScreen("phrases")}
+                        >
+                            Цитаты
+                        </Cell>
+                        <Cell
+                            data-mode="managed"
                             onClick={() => props.changeScreen("about")}
                         >
                             О приложении
                         </Cell>
+                        
                     </List>
                 </PanelHeaderContext>
                 <Group separator="hide">

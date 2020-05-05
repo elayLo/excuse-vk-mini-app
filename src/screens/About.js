@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Panel, View, PanelHeader, Button, Div, Group, Headline, Title, PanelHeaderClose, CardGrid, Card, Header, PanelHeaderContent, Cell, List, PanelHeaderContext } from '@vkontakte/vkui';
+import bridge from '@vkontakte/vk-bridge'
 
 export default function About(props) {
     const [contextOpened, setContextOpened] = useState(false)
@@ -12,8 +13,9 @@ export default function About(props) {
                         onClick={() => setContextOpened(!contextOpened)}
                     >
                         О приложении
+                        <img src={require('./../img/multimedia-option.svg')} alt="" className="home__arrow-down" onClick={() => setContextOpened(!contextOpened)} />
+
                     </PanelHeaderContent>
-                    <img src={require('./../img/multimedia-option.svg')} alt="" className="home__arrow-down" onClick={() => setContextOpened(!contextOpened)} />
                 </PanelHeader>
                 <PanelHeaderContext opened={contextOpened} onClose={() => setContextOpened(!contextOpened)}>
                     <List>
@@ -22,6 +24,12 @@ export default function About(props) {
                             onClick={() => props.changeScreen("main")}
                         >
                             Главная
+                        </Cell>
+                        <Cell
+                            data-mode="managed"
+                            onClick={() => props.changeScreen("phrases")}
+                        >
+                            Цитаты
                         </Cell>
                         <Cell
                             data-mode="managed"
@@ -50,6 +58,18 @@ export default function About(props) {
                             </Div>
                         </Card>
                     </CardGrid>
+                </Group>
+                <Group>
+                <Div className="home__button" style={{bottom: 70}}>
+                        <Button stretched mode="primary" size="l" onClick={bridge.send("VKWebAppJoinGroup", {"group_id": 195028399})}>
+                            Сообщество с приложениями
+                        </Button>
+                    </Div>
+                    <Div className="home__button">
+                        <Button stretched mode="secondary" size="l" onClick={bridge.send("VKWebAppAllowNotifications", {})}>
+                            Узнавать о приложениях
+                        </Button>
+                    </Div>
                 </Group>
             </Panel>
         </View>
