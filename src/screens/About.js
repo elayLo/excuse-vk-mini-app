@@ -33,6 +33,12 @@ export default function About(props) {
                         </Cell>
                         <Cell
                             data-mode="managed"
+                            onClick={() => props.changeScreen("library")}
+                        >
+                            Библиотека 
+                        </Cell>
+                        <Cell
+                            data-mode="managed"
                             onClick={() => setContextOpened(!contextOpened)}
                         >
                             О приложении

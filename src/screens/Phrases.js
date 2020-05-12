@@ -36,6 +36,12 @@ export default function Phrases(props) {
                         </Cell>
                         <Cell
                             data-mode="managed"
+                            onClick={() => props.changeScreen("library")}
+                        >
+                            Библиотека 
+                        </Cell>
+                        <Cell
+                            data-mode="managed"
                             onClick={() => props.changeScreen("about")}
                         >
                             О приложении

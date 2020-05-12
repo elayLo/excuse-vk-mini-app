@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Panel, View, PanelHeader, Button, Div, Group, Headline, Title, Card, CardGrid, Text, PanelHeaderContent, Cell, List, PanelHeaderContext } from '@vkontakte/vkui';
+import React, { useState, useEffect } from 'react';
+import { Panel, View, PanelHeader, Button, Div, Group, Headline, Title, Card, CardGrid, Avatar, PanelHeaderContent, Cell, List, PanelHeaderContext, Banner } from '@vkontakte/vkui';
 import { Excuses } from './../Data'
 import './Home.sass'
 
@@ -11,11 +11,10 @@ export default function Home(props) {
     let date = Excuses.date[Math.floor(Math.random() * Excuses.date.length)];
     let general = Excuses.general[Math.floor(Math.random() * Excuses.general.length)];
     var item = general + '. ' + fail + '. ' + action + ' ' + date + '. ';
-    localStorage.setItem('seen', false)
     const [modalOpen, setModalOpen] = useState(props.modalOpen)
     const seenButton = () => {
         props.closeModal(false)
-        props.changeScreen("phrases")
+        props.changeScreen("phrases")    
     }
     return (
         <View>
@@ -45,6 +44,12 @@ export default function Home(props) {
                         </Cell>
                         <Cell
                             data-mode="managed"
+                            onClick={() => props.changeScreen("library")}
+                        >
+                            Библиотека 
+                        </Cell>
+                        <Cell
+                            data-mode="managed"
                             onClick={() => props.changeScreen("about")}
                         >
                             О приложении
@@ -57,12 +62,12 @@ export default function Home(props) {
                         <Card size="l" mode="shadow">
                             {
                                 modalOpen ? <Div>
-                                <Title level="2" style={{ marginBottom: 10, color: '#ff7000' }}>Новая версия приложения!</Title>
-                                <Headline weight="regular" style={{ marginBottom: 0 }}>В новой версии приложения была добавлена вкладка "Цитата". Данная страница предназначена для людей, любящих использовать цитаты в своей повседневной жизни или для тех, кому они просто нравяться.</Headline>
-                                <Button stretched mode="secondary" size="l" onClick={seenButton} style={{marginTop: 10}}>
-                                    Попробовать
+                                    <Title level="2" style={{ marginBottom: 10, color: '#ff7000' }}>Новая версия приложения!</Title>
+                                    <Headline weight="regular" style={{ marginBottom: 0 }}>В новой версии приложения была добавлена вкладка "Цитата". Данная страница предназначена для людей, любящих использовать цитаты в своей повседневной жизни или для тех, кому они просто нравяться.</Headline>
+                                    <Button stretched mode="secondary" size="l" onClick={seenButton} style={{ marginTop: 10 }}>
+                                        Попробовать
                             </Button>
-                            </Div> : ""
+                                </Div> : ""
                             }
 
                         </Card>
@@ -70,7 +75,7 @@ export default function Home(props) {
                 </Group>
                 <Group separator="hide">
                     <CardGrid>
-                        <Card size="l" mode="shadow" style={modalOpen ? {marginTop: 10} : {marginTop: -10}}>
+                        <Card size="l" mode="shadow" style={modalOpen ? { marginTop: 10 } : { marginTop: -10 }}>
                             <Div>
                                 <Title level="2" style={{ marginBottom: 10 }}>Зачем тебе это?</Title>
                                 <Headline weight="regular" style={{ marginBottom: 0 }}>У каждого бывало, что нужно придумать правдоподобную отмазку для заказчика/директора/тимлида, не так ли? Так вот, данное приложение поможет вам с этим!</Headline>

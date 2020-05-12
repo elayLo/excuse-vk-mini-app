@@ -1,0 +1,14 @@
+.home__arrow-down {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  margin-bottom: -3px;
+}
+
+.home__button {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+/*# sourceMappingURL=Home.css.map */
