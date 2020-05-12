@@ -14,7 +14,7 @@ export default function Home(props) {
     const [modalOpen, setModalOpen] = useState(props.modalOpen)
     const seenButton = () => {
         props.closeModal(false)
-        props.changeScreen("phrases")    
+        props.changeScreen("library")
     }
     return (
         <View>
@@ -46,7 +46,7 @@ export default function Home(props) {
                             data-mode="managed"
                             onClick={() => props.changeScreen("library")}
                         >
-                            Библиотека 
+                            Библиотека
                         </Cell>
                         <Cell
                             data-mode="managed"
@@ -58,24 +58,31 @@ export default function Home(props) {
                     </List>
                 </PanelHeaderContext>
                 <Group separator="hide">
-                    <CardGrid>
-                        <Card size="l" mode="shadow">
-                            {
-                                modalOpen ? <Div>
-                                    <Title level="2" style={{ marginBottom: 10, color: '#ff7000' }}>Новая версия приложения!</Title>
-                                    <Headline weight="regular" style={{ marginBottom: 0 }}>В новой версии приложения была добавлена вкладка "Цитата". Данная страница предназначена для людей, любящих использовать цитаты в своей повседневной жизни или для тех, кому они просто нравяться.</Headline>
-                                    <Button stretched mode="secondary" size="l" onClick={seenButton} style={{ marginTop: 10 }}>
-                                        Попробовать
-                            </Button>
-                                </Div> : ""
-                            }
 
-                        </Card>
-                    </CardGrid>
+                    {
+                        modalOpen ?
+                            <Banner
+                                mode="image"
+                                header="Новая версия приложения!"
+                                subheader="Добавлена страница 'Библиотека'"
+                                background={
+                                    <div
+                                        style={{
+                                            backgroundColor: '#FF8E22',
+                                            backgroundImage: 'url(https://image.flaticon.com/icons/svg/1454/1454500.svg)',
+                                            backgroundPosition: 'right bottom',
+                                            backgroundSize: 70,
+                                            backgroundRepeat: 'no-repeat',
+                                        }}
+                                    />
+                                }
+                                actions={<Button mode="overlay" style={{color: 'white', background: '#FFC15B'}} onClick={() => seenButton()}>Подробнее</Button>}
+                            /> : ""
+                    }
                 </Group>
                 <Group separator="hide">
                     <CardGrid>
-                        <Card size="l" mode="shadow" style={modalOpen ? { marginTop: 10 } : { marginTop: -10 }}>
+                        <Card size="l" mode="shadow" style={{ marginTop: 10 }}>
                             <Div>
                                 <Title level="2" style={{ marginBottom: 10 }}>Зачем тебе это?</Title>
                                 <Headline weight="regular" style={{ marginBottom: 0 }}>У каждого бывало, что нужно придумать правдоподобную отмазку для заказчика/директора/тимлида, не так ли? Так вот, данное приложение поможет вам с этим!</Headline>

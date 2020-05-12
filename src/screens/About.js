@@ -50,7 +50,7 @@ export default function About(props) {
                         <Card size="l" mode="shadow">
                             <Div>
                                 <Title level="2" style={{ marginBottom: 10 }}>Зачем тебе это?</Title>
-                                <Headline weight="regular" style={{ marginBottom: 0 }}>У каждого бывало, что нужно придумать правдоподобную отмазку для заказчика/директора/тимлида, не так ли? Так вот, данное приложение поможет вам с этим!</Headline>
+                                <Headline weight="regular" style={{ marginBottom: 0 }}>Данное приложениие уже прошло стадию MVP и в данный момент является инструментом, который может быть полезен для всех!</Headline>
                             </Div>
                         </Card>
                     </CardGrid>

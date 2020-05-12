@@ -27,7 +27,7 @@ export default function Urban(props) {
                             <PanelHeaderContent
                                 onClick={() => setContextOpened(!contextOpened)}
                             >
-                                Главная
+                                Библиотека
                         <img src={require('./../img/multimedia-option.svg')} alt="" className="home__arrow-down" onClick={() => setContextOpened(!contextOpened)} />
                             </PanelHeaderContent>
                         </PanelHeader>
