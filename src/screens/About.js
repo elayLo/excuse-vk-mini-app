@@ -60,7 +60,7 @@ export default function About(props) {
                         <Card size="l" mode="shadow">
                             <Div>
                                 <Title level="2" style={{ marginBottom: 10 }}>Кем сделано?</Title>
-                                <Headline weight="regular" style={{ marginBottom: 0 }}>Сделанно <a href="https://vk.com/s.sergeenkov">Александром Сергеенковым</a></Headline>
+                                <Headline weight="regular" style={{ marginBottom: 0 }}>Сделано <a href="https://vk.com/s.sergeenkov">Александром Сергеенковым</a></Headline>
                             </Div>
                         </Card>
                     </CardGrid>
